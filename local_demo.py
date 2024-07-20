@@ -14,7 +14,7 @@ class GEMMASummarizationModel(BaseSummarizationModel):
             "text-generation",
             model=model_name,
             model_kwargs={"torch_dtype": torch.bfloat16},
-            device=torch.device('cpu'),  # Use "cpu" if CUDA is not available
+            device=torch.device('cuda'),  # Use "cpu" if CUDA is not available
         )
 
     def summarize(self, context, max_tokens=150):
@@ -47,7 +47,7 @@ class GEMMAQAModel(BaseQAModel):
             "text-generation",
             model=model_name,
             model_kwargs={"torch_dtype": torch.bfloat16},
-            device=torch.device('cpu'),
+            device=torch.device('cuda'),
         )
 
     def answer_question(self, context, question):
